@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form-header-wrapper {
+    font-weight: 600;
+    text-align: center;
+}
+
+.add-ingredient-form,
+.add-receipt-form,
+.add-image-form {
+    margin-top: 35px;
+}
+
+.inputs-wrapper,
+.multiple-selects-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.input-item {
+    margin: 3px;
+}
+
+.dish-name-input,
+.ingredient-input,
+.image-input {
+    margin-top: 10px;
+}
+
+.image-input {
+    width: 200px;
+}
+
+.ingredients-caption {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.btn-wrapper {
+    text-align: center;
+}
+
+.button {
+    width: 100px;
+}

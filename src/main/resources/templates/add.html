@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Cooking Application</title>
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/add.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <span class="logo-caption">Cooking Application</span>
+    </header>
+    <nav>
+        <ul class="navbar">
+            <li class="navbar-item"><a th:href="@{/statistics}">Statistics</a></li>
+            <li class="navbar-item"><a th:href="@{/overview}">Overview</a></li>
+            <li class="navbar-item active"><a th:href="@{/add}">Add</a></li>
+        </ul>
+    </nav>
+    <form class="add-dish-form" action="#" th:action="@{/add-dish}" th:object="${dish}" method="post">
+        <div class="form-header-wrapper">
+            <span class="form-header">Add dish</span>
+        </div>
+        <div class="container">
+            <div class="inputs-wrapper">
+                <input class="input-item dish-name-input" type="text" th:field="*{name}" placeholder="Dish name">
+                <select class="input-item" th:field="*{dishType.id}">
+                    <option disabled selected value="Dish Type">Dish Type</option>
+                    <option th:each="dishType:${allTypes}"
+                            th:value="${{dishType.id}}"
+                            th:text="${dishType.typeName}">
+                    </option>
+                </select>
+            </div>
+            <div class="multiple-selects-wrapper">
+                <span class="ingredients-caption">Ingredients</span>
+                <select class="ingredients-select" th:field="*{ingredients}" multiple size="5">
+                    <option th:each="ingredient:${allIngredients}"
+                            th:value="${{ingredient}}"
+                            th:text="${ingredient.name}">
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-wrapper">
+            <input class="button" type="submit" value="Add">
+        </div>
+    </form>
+    <form class="add-receipt-form" action="#" th:action="@{/add-receipt}" th:object="${receipt}" method="post">
+        <div class="form-header-wrapper">
+            <span class="form-header">Add Receipt</span>
+        </div>
+        <div class="container">
+            <div class="inputs-wrapper">
+                <select class="input-item" th:field="*{dishId}">
+                    <option disabled selected value="Dish">Dish</option>
+                    <option th:each="dish:${allDishes}"
+                            th:value="${{dish.id}}"
+                            th:text="${dish.name}">
+                    </option>
+                </select>
+                <input class="input-item" type="text" th:field="*{image}" placeholder="Image">
+                <input class="input-item" type="url" th:field="*{url}" placeholder="Receipt URL">
+            </div>
+        </div>
+        <div class="btn-wrapper">
+            <button class="button" type="submit">Add</button>
+        </div>
+    </form>
+    <form class="add-ingredient-form" action="#" th:action="@{/add-ingredient}" th:object="${ingredient}" method="post">
+        <div class="form-header-wrapper">
+            <span class="form-header">Add Ingredient</span>
+        </div>
+        <div class="container">
+            <div class="inputs-wrapper">
+                <input class="input-item ingredient-input" type="text" th:field="*{name}" placeholder="Ingredient name">
+            </div>
+        </div>
+        <div class="btn-wrapper">
+            <button class="button" type="submit">Add</button>
+        </div>
+    </form>
+    <footer>
+        <span class="copyright-caption">© 2019 Chukky Katz. All rights reserved</span>
+    </footer>
+</body>
+</html>

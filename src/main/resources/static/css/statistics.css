@@ -1,0 +1,32 @@
+.stat-table {
+    margin-top: 50px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+.stat-table-caption {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+  
+.stat-table th,
+.stat-table td {
+    width: 30%;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.stat-table tr.stat-header {
+    background-color: darkgrey;
+}
+
+.stat-table tr th.name-capt {
+    text-align: left;
+}
+
+.stat-table tr td.quantity-val {
+    text-align: center;
+}

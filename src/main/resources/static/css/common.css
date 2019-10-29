@@ -1,0 +1,45 @@
+html {
+    font-family: "Arial", Verdana;
+    background-color: lightgrey;
+}
+
+.logo-caption {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 5px;
+}
+
+.navbar {
+    text-align: right;
+    background-color: darkgrey;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.navbar-item {
+    display: inline;
+}
+
+.navbar-item a {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-item a:hover {
+    color: lightgrey;
+}
+
+.active a {
+    color: black;
+}
+
+.copyright-caption {
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+    height: 2.0rem;
+}

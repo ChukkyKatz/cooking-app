@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .advices-list { list-style-type: none; padding: 0px; margin: 0px; text-align: center; }
+        .advice { padding-bottom: 20px; }
+        .dish-name-caption { color: midnightblue; font-size: 18pt; text-align: center; }
+        .dish-img { display: block;  margin-left: auto; margin-right: auto; width: 80%; border-radius: 25px; }
+        .rec-url { background-color: #fdc551; border-radius: 15px; color:#3d4251; font-size: 15px; font-weight: bold;
+                  display: inline-block; font-family: 'Lato', 'Open Sans', sans-serif; line-height: 45px; text-align: center;
+                  text-decoration: none; width: 80%; margin-top: 15px; margin-left: 10%; margin-right: 10%; }
+        .ingredients-caption { color:black; font-size: 16pt; text-align: center; }
+        .ingredients-list { color:black; font-size: 14pt; width: 160px; margin: auto; text-align: center; }
+        .ing-item { text-align: left; }
+    </style>
+</head>
+<body>
+    <ul class="advices-list" >
+        <li class="advice" th:each="dish:${advices.keySet()}">
+            <h1 class="dish-name-caption" th:text="${dish.name}"></h1>
+            <img class="dish-img" src="" th:src="${advices.get(dish).image}">
+            <a class="rec-url" th:href="${advices.get(dish).url}">Рецепт</a>
+            <h2 class="ingredients-caption">Інгридієнти:</h2>
+            <ul class="ingredients-list">
+                <li class="ing-item" th:each="ingredient:${dish.ingredients}"
+                                     th:text="${ingredient.name}">
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

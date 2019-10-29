@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Cooking Application</title>
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/statistics.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <span class="logo-caption">Cooking Application</span>
+    </header>
+    <nav>
+        <ul class="navbar">
+            <li class="navbar-item active"><a th:href="@{/statistics}">Statistics</a></li>
+            <li class="navbar-item"><a th:href="@{/overview}">Overview</a></li>
+            <li class="navbar-item"><a th:href="@{/add}">Add</a></li>
+        </ul>
+    </nav>
+        <table class="stat-table">
+            <caption class="stat-table-caption">Overall Statistics</caption>
+            <tr class="stat-header">
+                <th class="name-capt">Name</th>
+                <th>Quantity</th>
+            </tr>
+            <tr class="stat-item">
+                <td>Dishes Types</td>
+                <td class="quantity-val" th:text="${dishesTypesNumber}"></td>
+            </tr>
+            <tr class="stat-item">
+                <td>Dishes</td>
+                <td class="quantity-val" th:text="${dishesNumber}"></td>
+            </tr>
+            <tr class="stat-item">
+                <td>Ingredients</td>
+                <td class="quantity-val" th:text="${ingredientsNumber}"></td>
+            </tr>
+            <tr class="stat-item">
+                <td>Receipts</td>
+                <td class="quantity-val" th:text="${receiptsNumber}"></td>
+            </tr>
+        </table>
+    <footer>
+        <span class="copyright-caption">© 2019 Chukky Katz. All rights reserved</span>
+    </footer>
+</body>
+</html>
