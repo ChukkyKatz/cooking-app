@@ -5,6 +5,7 @@ Selects random cooking recipe from the list stored in database and sends it by e
 To start application please use start.sh script
 
 Technologies:
-- Java, Spring (Boot, MVC, Data, Mail, Thymleaf, Quartz), Maven
+- Java, Spring (Boot, MVC, Data, Mail, Thymleaf, Quartz), Lombok, Maven
+- HTML, CSS
 - PostgreSQL
 - Docker, docker-compose
