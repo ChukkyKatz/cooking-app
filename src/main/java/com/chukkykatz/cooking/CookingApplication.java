@@ -1,4 +1,4 @@
-package com.chukkykatz.cooking_app;
+package com.chukkykatz.cooking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,6 +1,6 @@
-package com.chukkykatz.cooking_app.repository;
+package com.chukkykatz.cooking.repository;
 
-import com.chukkykatz.cooking_app.domain.Recipient;
+import com.chukkykatz.cooking.domain.Recipient;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RecipientRepository extends JpaRepository<Recipient, Integer> {

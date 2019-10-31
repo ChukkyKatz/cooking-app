@@ -1,9 +1,9 @@
-package com.chukkykatz.cooking_app.service;
+package com.chukkykatz.cooking.service;
 
-import com.chukkykatz.cooking_app.domain.Dish;
-import com.chukkykatz.cooking_app.domain.Receipt;
-import com.chukkykatz.cooking_app.domain.Recipient;
-import com.chukkykatz.cooking_app.repository.RecipientRepository;
+import com.chukkykatz.cooking.domain.Dish;
+import com.chukkykatz.cooking.domain.Receipt;
+import com.chukkykatz.cooking.domain.Recipient;
+import com.chukkykatz.cooking.repository.RecipientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;

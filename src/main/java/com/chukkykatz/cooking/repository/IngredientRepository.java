@@ -1,6 +1,6 @@
-package com.chukkykatz.cooking_app.repository;
+package com.chukkykatz.cooking.repository;
 
-import com.chukkykatz.cooking_app.domain.Ingredient;
+import com.chukkykatz.cooking.domain.Ingredient;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IngredientRepository extends JpaRepository<Ingredient, Integer> {

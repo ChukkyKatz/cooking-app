@@ -1,4 +1,4 @@
-package com.chukkykatz.cooking_app.scheduler;
+package com.chukkykatz.cooking.scheduler;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

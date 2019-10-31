@@ -1,6 +1,6 @@
-package com.chukkykatz.cooking_app.repository;
+package com.chukkykatz.cooking.repository;
 
-import com.chukkykatz.cooking_app.domain.Dish;
+import com.chukkykatz.cooking.domain.Dish;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

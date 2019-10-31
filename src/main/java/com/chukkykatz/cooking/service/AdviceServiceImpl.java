@@ -1,10 +1,10 @@
-package com.chukkykatz.cooking_app.service;
+package com.chukkykatz.cooking.service;
 
-import com.chukkykatz.cooking_app.domain.Dish;
-import com.chukkykatz.cooking_app.domain.DishType;
-import com.chukkykatz.cooking_app.domain.Receipt;
-import com.chukkykatz.cooking_app.repository.DishRepository;
-import com.chukkykatz.cooking_app.repository.DishTypeRepository;
+import com.chukkykatz.cooking.domain.Dish;
+import com.chukkykatz.cooking.domain.DishType;
+import com.chukkykatz.cooking.domain.Receipt;
+import com.chukkykatz.cooking.repository.DishRepository;
+import com.chukkykatz.cooking.repository.DishTypeRepository;
 import org.quartz.CronExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

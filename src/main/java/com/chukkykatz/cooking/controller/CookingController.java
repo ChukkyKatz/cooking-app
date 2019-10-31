@@ -1,13 +1,14 @@
-package com.chukkykatz.cooking_app.controller;
+package com.chukkykatz.cooking.controller;
 
-import com.chukkykatz.cooking_app.domain.Dish;
-import com.chukkykatz.cooking_app.domain.DishType;
-import com.chukkykatz.cooking_app.domain.Ingredient;
-import com.chukkykatz.cooking_app.domain.Receipt;
-import com.chukkykatz.cooking_app.repository.DishRepository;
-import com.chukkykatz.cooking_app.repository.DishTypeRepository;
-import com.chukkykatz.cooking_app.repository.IngredientRepository;
-import com.chukkykatz.cooking_app.repository.ReceiptRepository;
+import com.chukkykatz.cooking.domain.Dish;
+import com.chukkykatz.cooking.domain.DishType;
+import com.chukkykatz.cooking.domain.Ingredient;
+import com.chukkykatz.cooking.domain.Receipt;
+import com.chukkykatz.cooking.repository.DishRepository;
+import com.chukkykatz.cooking.repository.DishTypeRepository;
+import com.chukkykatz.cooking.repository.IngredientRepository;
+import com.chukkykatz.cooking.repository.ReceiptRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.*;
 
+@Slf4j
 @Controller
 public class CookingController {
 

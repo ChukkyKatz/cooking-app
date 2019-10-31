@@ -1,4 +1,4 @@
-package com.chukkykatz.cooking_app.domain;
+package com.chukkykatz.cooking.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

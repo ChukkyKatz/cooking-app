@@ -1,9 +1,9 @@
-package com.chukkykatz.cooking_app.scheduler;
+package com.chukkykatz.cooking.scheduler;
 
-import com.chukkykatz.cooking_app.domain.Dish;
-import com.chukkykatz.cooking_app.domain.Receipt;
-import com.chukkykatz.cooking_app.service.AdviceService;
-import com.chukkykatz.cooking_app.service.EmailService;
+import com.chukkykatz.cooking.domain.Dish;
+import com.chukkykatz.cooking.domain.Receipt;
+import com.chukkykatz.cooking.service.AdviceService;
+import com.chukkykatz.cooking.service.EmailService;
 import org.quartz.JobExecutionContext;
 import org.quartz.SchedulerException;
 import org.springframework.context.ApplicationContext;

@@ -1,4 +1,4 @@
-package com.chukkykatz.cooking_app.domain;
+package com.chukkykatz.cooking.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(schema = "cooking", name = "recipients")
-public class Recipient {
+@Table(schema = "cooking", name = "ingredients")
+public class Ingredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,4 @@ public class Recipient {
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "email")
-    private String email;
 }
