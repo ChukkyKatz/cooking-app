@@ -5,6 +5,7 @@ import com.chukkykatz.cooking.domain.DishType;
 import com.chukkykatz.cooking.domain.Receipt;
 import com.chukkykatz.cooking.repository.DishRepository;
 import com.chukkykatz.cooking.repository.DishTypeRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.quartz.CronExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.*;
+import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class AdviceServiceImpl implements AdviceService {
 
@@ -31,21 +34,30 @@ public class AdviceServiceImpl implements AdviceService {
     @Override
     @Transactional
     public Map<Dish, Receipt> getAdvice() {
-        final List<Integer> typesToAdvice = checkExpiration();
-        final Map<Dish, Receipt> advice = new HashMap<>(typesToAdvice.size());
-        typesToAdvice.forEach(type -> {
-            final Dish dish = dishRepository.getRandomByDishType(type);
-            advice.put(dish, dish.getRandomReceipt());
+        final List<DishType> scheduledTypes = checkExpiration();
+        final Map<Dish, Receipt> advice = new HashMap<>(scheduledTypes.size());
+        scheduledTypes.forEach(type -> {
+            final Dish dish = dishRepository.getRandomByDishType(type.getId());
+            if (dish == null) {
+                log.warn("No dishes found for type " + type.getTypeName() + ", skipped");
+            } else {
+                final Receipt receipt = dish.getRandomReceipt();
+                if (receipt == null) {
+                    log.warn("No receipts found for dish " + dish.getName() + ", skipped");
+                } else {
+                    advice.put(dish, dish.getRandomReceipt());
+                }
+            }
         });
-        if (typesToAdvice.size() != 0) {
-            updateAdviceTimestamps(typesToAdvice);
+        if (scheduledTypes.size() != 0) {
+            updateAdviceTimestamps(scheduledTypes);
         }
         return advice;
     }
 
-    private List<Integer> checkExpiration() {
+    private List<DishType> checkExpiration() {
         final List<DishType> allTypesList = dishTypeRepository.findAll();
-        final List<Integer> scheduledTypes = new LinkedList<>();
+        final List<DishType> scheduledTypes = new LinkedList<>();
         allTypesList.forEach(type -> {
             final Date lastAdviseDate = type.getLastAdviceDate();
             try {
@@ -54,16 +66,19 @@ public class AdviceServiceImpl implements AdviceService {
                 final Date currentDate = new Date(System.currentTimeMillis());
                 boolean isScheduled = nextExecutionDate.before(currentDate);
                 if (isScheduled) {
-                    scheduledTypes.add(type.getId());
+                    scheduledTypes.add(type);
                 }
             } catch (ParseException e) {
-                System.out.println("Fail to parse schedule expression - " + type.getAdviceSchedule());
+                log.error("Fail to parse schedule expression - " + type.getAdviceSchedule(), e);
             }
         });
         return scheduledTypes;
     }
 
-    private void updateAdviceTimestamps(List<Integer> dishTypes) {
-        dishTypeRepository.updateLastAdviceTimeById(dishTypes, new Timestamp(new Date().getTime()));
+    private void updateAdviceTimestamps(List<DishType> scheduledTypes) {
+        final List<Integer> dishTypesIdsToUpdate = scheduledTypes.stream()
+                                                                 .map(DishType::getId)
+                                                                 .collect(Collectors.toList());
+        dishTypeRepository.updateLastAdviceTimeById(dishTypesIdsToUpdate, new Timestamp(new Date().getTime()));
     }
 }

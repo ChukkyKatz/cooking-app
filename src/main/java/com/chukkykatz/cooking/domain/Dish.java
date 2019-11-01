@@ -41,8 +41,12 @@ public class Dish {
     private List<Receipt> receipts;
 
     public Receipt getRandomReceipt() {
-        final Random random = new Random();
-        final int receiptNum = random.nextInt(receipts.size());
-        return receipts.get(receiptNum);
+        if (receipts == null) {
+            return null;
+        } else {
+            final Random random = new Random();
+            final int receiptNum = random.nextInt(receipts.size());
+            return receipts.get(receiptNum);
+        }
     }
 }

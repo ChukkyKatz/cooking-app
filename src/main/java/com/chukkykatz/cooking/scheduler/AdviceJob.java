@@ -4,6 +4,7 @@ import com.chukkykatz.cooking.domain.Dish;
 import com.chukkykatz.cooking.domain.Receipt;
 import com.chukkykatz.cooking.service.AdviceService;
 import com.chukkykatz.cooking.service.EmailService;
+import lombok.extern.slf4j.Slf4j;
 import org.quartz.JobExecutionContext;
 import org.quartz.SchedulerException;
 import org.springframework.context.ApplicationContext;
@@ -11,7 +12,9 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class AdviceJob extends QuartzJobBean {
 
@@ -25,9 +28,14 @@ public class AdviceJob extends QuartzJobBean {
             final Map<Dish, Receipt> advices = adviceService.getAdvice();
             if (advices.size() > 0) {
                 emailService.sendAdviceMessage(advices);
+                log.info("No scheduled advice yet");
             }
+            log.info("Advice provided: " + advices.keySet()
+                                              .stream()
+                                              .map(Dish::getName)
+                                              .collect(Collectors.joining(", ")));
         } catch (SchedulerException e) {
-            e.printStackTrace();
+            log.error("Fail to provide advice email", e);
         }
     }
 }

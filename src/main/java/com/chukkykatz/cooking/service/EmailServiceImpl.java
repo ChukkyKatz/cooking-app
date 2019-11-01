@@ -4,6 +4,7 @@ import com.chukkykatz.cooking.domain.Dish;
 import com.chukkykatz.cooking.domain.Receipt;
 import com.chukkykatz.cooking.domain.Recipient;
 import com.chukkykatz.cooking.repository.RecipientRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -18,6 +19,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @Service
 public class EmailServiceImpl implements EmailService {
 
@@ -60,7 +62,7 @@ public class EmailServiceImpl implements EmailService {
             mimeMessageHelper.setSubject(emailSubject);
             mimeMessageHelper.setText(htmlContent, true);
         } catch (MessagingException e) {
-            e.printStackTrace();
+            log.error("Fail to create email", e);
         }
         javaMailSender.send(mimeMessage);
     }

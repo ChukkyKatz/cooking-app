@@ -8,7 +8,6 @@ import com.chukkykatz.cooking.repository.DishRepository;
 import com.chukkykatz.cooking.repository.DishTypeRepository;
 import com.chukkykatz.cooking.repository.IngredientRepository;
 import com.chukkykatz.cooking.repository.ReceiptRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.*;
 
-@Slf4j
 @Controller
 public class CookingController {
 
