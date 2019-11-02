@@ -13,7 +13,7 @@ services:
       SERVICE_EMAIL: ${SERVICE_EMAIL}
       SERVICE_EMAIL_PASSWORD: ${SERVICE_EMAIL_PASSWORD}
     volumes:
-      - /app/logs:/data/home/cooking-app/logs
+      - /data/home/cooking-app/logs:/app/logs
     ports:
       - "80:8080"
 
