@@ -7,6 +7,15 @@
     border-collapse: collapse;
     margin-left:auto;
     margin-right:auto;
+    counter-reset: rowNumber;
+}
+
+.table-row {
+    counter-increment: rowNumber;
+}
+
+.overview-table .table-row td:first-child::before {
+    content: counter(rowNumber);
 }
 
 .overview-table-caption {
