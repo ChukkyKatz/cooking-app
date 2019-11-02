@@ -10,11 +10,11 @@
     counter-reset: rowNumber;
 }
 
-.table-row {
+.overview-row {
     counter-increment: rowNumber;
 }
 
-.overview-table .table-row td:first-child::before {
+.overview-table .overview-row td:first-child::before {
     content: counter(rowNumber);
 }
 

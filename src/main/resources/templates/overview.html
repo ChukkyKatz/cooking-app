@@ -28,7 +28,7 @@
                 <th class="col-img">Images</th>
                 <th class="col-rec">Receipts</th>
             </tr>
-            <tr class="table-row" th:each="dish:${allDishes}">
+            <tr class="overview-row" th:each="dish:${allDishes}">
                 <td class="col-number" th:id="${dish.id}"></td>
                 <td class="col-dish" th:text="${dish.name}"></td>
                 <td class="col-type" th:text="${dish.dishType.typeName}"></td>
