@@ -1,5 +1,7 @@
 .overview-table {
-    width: 98%;
+    width: 99%;
+    table-layout: fixed;
+    word-wrap: break-word;
     margin-top: 50px;
     border: 2px solid black;
     border-collapse: collapse;
@@ -17,6 +19,7 @@
 .overview-table td {
     border: 1px solid black;
     padding: 5px;
+    font-size: 14px;
 }
 
 .overview-table td ul {
@@ -40,20 +43,32 @@
 .overview-table th.col-type,
 .overview-table td.col-type {
     text-align: center;
-    width: 15%;
+    width: 10%;
 }
 
 .overview-table th.col-ingr,
 .overview-table td.col-ingr {
-    width: 10%;
+    width: 15%;
 }
 
 .overview-table th.col-img,
 .overview-table td.col-img {
     width: 20%;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 .overview-table th.col-rec,
 .overview-table td.col-rec {
-    width: 45%;
+    width: 38%;
+}
+
+.table-ing-item {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.table-url-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

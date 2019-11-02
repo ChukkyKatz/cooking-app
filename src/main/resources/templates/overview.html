@@ -17,39 +17,43 @@
             <li class="navbar-item"><a th:href="@{/add}">Add</a></li>
         </ul>
     </nav>
-    <table class="overview-table">
-        <caption class="overview-table-caption">Data Overview</caption>
-        <tr class="overview-header">
-            <th class="col-number">№</th>
-            <th class="col-dish">Dish</th>
-            <th class="col-type">Type</th>
-            <th class="col-ingr">Ingredients</th>
-            <th class="col-img">Images</th>
-            <th class="col-rec">Receipts</th>
-        </tr>
-        <tr th:each="dish:${allDishes}">
-            <td class="col-number" th:text="${dish.id}"></td>
-            <td class="col-dish" th:text="${dish.name}"></td>
-            <td class="col-type" th:text="${dish.dishType.typeName}"></td>
-            <td class="col-ingr">
-                <div th:each="ingredient:${dish.ingredients}">
-                    <span th:text="${ingredient.name}"></span>
-                </div>
-            </td>
-            <td class="col-img">
-                <div th:each="receipt:${dish.receipts}">
-                    <a th:href="${receipt.image}" th:text="${receipt.image}"></a>
-                </div>
-            </td>
-            <td class="col-rec">
-                <div th:each="receipt:${dish.receipts}">
-                    <a th:href="${receipt.url}" th:text="${receipt.url}"></a>
-                </div>
-            </td>
-        </tr>
-    </table>
+    <div class="overview-table-container">
+        <table class="overview-table">
+            <caption class="overview-table-caption">Data Overview</caption>
+            <tr class="overview-header">
+                <th class="col-number">№</th>
+                <th class="col-dish">Dish</th>
+                <th class="col-type">Type</th>
+                <th class="col-ingr">Ingredients</th>
+                <th class="col-img">Images</th>
+                <th class="col-rec">Receipts</th>
+            </tr>
+            <tr th:each="dish:${allDishes}">
+                <td class="col-number" th:text="${dish.id}"></td>
+                <td class="col-dish" th:text="${dish.name}"></td>
+                <td class="col-type" th:text="${dish.dishType.typeName}"></td>
+                <td class="col-ingr">
+                    <div class="table-ing-item" th:each="ingredient:${dish.ingredients}">
+                        <span th:text="'- ' + ${ingredient.name}"></span>
+                    </div>
+                </td>
+                <td class="col-img">
+                    <div class="table-url-item" th:each="receipt:${dish.receipts}">
+                        <a th:href="${receipt.image}" th:text="${receipt.image}"></a>
+                    </div>
+                </td>
+                <td class="col-rec">
+                    <div class="table-url-item" th:each="receipt:${dish.receipts}">
+                        <a th:href="${receipt.url}" th:text="${receipt.url}"></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
     <footer>
-        <span class="copyright-caption-nonabs">© 2019 Chukky Katz. All rights reserved</span>
+        <div class="copyright-caption-nonabs">
+            <span >© 2019 Chukky Katz. All rights reserved</span>
+        </div>
     </footer>
 </body>
 </html>
