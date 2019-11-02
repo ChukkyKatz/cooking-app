@@ -18,6 +18,10 @@
     content: counter(rowNumber);
 }
 
+.overview-table tr.overview-header {
+    background-color: darkgrey;
+}
+
 .overview-table-caption {
     font-size: 18px;
     font-weight: 600;
