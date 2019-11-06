@@ -6,7 +6,8 @@
     <style>
         .advices-list { list-style-type: none; padding: 0px; margin: 0px; text-align: center; }
         .advice { padding-bottom: 20px; }
-        .dish-name-caption { color: midnightblue; font-size: 18pt; text-align: center; }
+        .dish-name-caption { color: midnightblue; font-size: 18pt; text-align: center; margin: 0px; }
+        .dish-type-caption { color:black; font-size: 12pt; text-align: center; font-weight: bold; margin-bottom: 10px; }
         .dish-img { display: block;  margin-left: auto; margin-right: auto; width: 80%; border-radius: 25px; }
         .rec-url { background-color: #fdc551; border-radius: 15px; color:#3d4251; font-size: 15px; font-weight: bold;
                   display: inline-block; font-family: 'Lato', 'Open Sans', sans-serif; line-height: 45px; text-align: center;
@@ -20,6 +21,9 @@
     <ul class="advices-list" >
         <li class="advice" th:each="dish:${advices.keySet()}">
             <h1 class="dish-name-caption" th:text="${dish.name}"></h1>
+            <div class="dish-type-caption">
+                <span th:text="${dish.dishType.typeName}"></span>
+            </div>
             <img class="dish-img" src="" th:src="${advices.get(dish).image}">
             <a class="rec-url" th:href="${advices.get(dish).url}">Рецепт</a>
             <h2 class="ingredients-caption">Інгридієнти:</h2>
