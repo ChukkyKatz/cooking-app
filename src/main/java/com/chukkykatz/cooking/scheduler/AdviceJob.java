@@ -28,12 +28,13 @@ public class AdviceJob extends QuartzJobBean {
             final Map<Dish, Receipt> advices = adviceService.getAdvice();
             if (advices.size() > 0) {
                 emailService.sendAdviceMessage(advices);
+                log.info("Advice provided: " + advices.keySet()
+                        .stream()
+                        .map(Dish::getName)
+                        .collect(Collectors.joining(", ")));
+            } else {
                 log.info("No scheduled advice yet");
             }
-            log.info("Advice provided: " + advices.keySet()
-                                              .stream()
-                                              .map(Dish::getName)
-                                              .collect(Collectors.joining(", ")));
         } catch (SchedulerException e) {
             log.error("Fail to provide advice email", e);
         }

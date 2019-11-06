@@ -61,9 +61,9 @@ public class EmailServiceImpl implements EmailService {
             mimeMessageHelper.setTo(addresses.toArray(addressesArr));
             mimeMessageHelper.setSubject(emailSubject);
             mimeMessageHelper.setText(htmlContent, true);
+            javaMailSender.send(mimeMessage);
         } catch (MessagingException e) {
             log.error("Fail to create email", e);
         }
-        javaMailSender.send(mimeMessage);
     }
 }

@@ -63,9 +63,8 @@ public class AdviceServiceImpl implements AdviceService {
             try {
                 final CronExpression cronExpression = new CronExpression(type.getAdviceSchedule());
                 final Date nextExecutionDate = cronExpression.getNextValidTimeAfter(lastAdviseDate);
-                final Date currentDate = new Date(System.currentTimeMillis());
-                boolean isScheduled = nextExecutionDate.before(currentDate);
-                if (isScheduled) {
+                final Date currentDate = new Date();
+                if (nextExecutionDate.before(currentDate)) {
                     scheduledTypes.add(type);
                 }
             } catch (ParseException e) {
