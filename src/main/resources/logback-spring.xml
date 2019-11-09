@@ -9,20 +9,21 @@
         </encoder>
     </appender>
 
-    <appender name="SAVE-TO-FILE" class="ch.qos.logback.core.FileAppender">
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <file>${LOG_PATH}/${LOG_FILE}</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>
                 %d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n
             </Pattern>
         </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
     </appender>
 
     <root level="info">
         <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
     </root>
-    <logger name="com.chukkykatz.cooking" additivity="false" level="warn">
-        <appender-ref ref="SAVE-TO-FILE"/>
-    </logger>
 
 </configuration>
