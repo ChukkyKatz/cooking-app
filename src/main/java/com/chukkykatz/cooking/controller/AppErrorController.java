@@ -20,9 +20,4 @@ public class AppErrorController implements ErrorController {
         model.addAttribute("scCh3", statusCode.charAt(2));
         return "error";
     }
-
-    @Override
-    public String getErrorPath() {
-        return "/error";
-    }
 }

@@ -54,7 +54,7 @@ public class CookingController {
     @GetMapping("/overview")
     public String overview(final Model model) {
         final List<Dish> allDishes = new ArrayList<>(
-                dishRepository.findAll(new Sort(Sort.Direction.ASC, "name"))
+                dishRepository.findAll(Sort.by(Sort.Direction.ASC, "name"))
         );
         model.addAttribute("allDishes", allDishes);
         return "overview";
@@ -67,13 +67,13 @@ public class CookingController {
         model.addAttribute("ingredient", new Ingredient());
         model.addAttribute("receipt", new Receipt());
         final List<DishType> allTypes = new ArrayList<>(
-                dishTypeRepository.findAll(new Sort(Sort.Direction.ASC, "typeName"))
+                dishTypeRepository.findAll(Sort.by(Sort.Direction.ASC, "typeName"))
         );
         final List<Ingredient> allIngredients = new ArrayList<>(
-                ingredientRepository.findAll(new Sort(Sort.Direction.ASC, "name"))
+                ingredientRepository.findAll(Sort.by(Sort.Direction.ASC, "name"))
         );
         final List<Dish> allDishes = new ArrayList<>(
-                dishRepository.findAll(new Sort(Sort.Direction.ASC, "name"))
+                dishRepository.findAll(Sort.by(Sort.Direction.ASC, "name"))
         );
         model.addAttribute("allTypes", allTypes);
         model.addAttribute("allIngredients", allIngredients);
