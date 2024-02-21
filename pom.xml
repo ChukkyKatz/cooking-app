@@ -13,7 +13,7 @@
         <java.version>17</java.version>
         <start-class>com.chukkykatz.cooking.CookingApplication</start-class>
         <spring.boot.version>3.1.2</spring.boot.version>
-        <postgresql.driver.version>42.5.2</postgresql.driver.version>
+        <postgresql.driver.version>42.7.2</postgresql.driver.version>
         <lombok.version>1.18.28</lombok.version>
     </properties>
 
